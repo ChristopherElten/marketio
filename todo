@@ -1,0 +1,36 @@
+TODO
+-----
+
+- Show the market is currently opened or closed
+
+if time is not between 9:00 AM and 5:00 PM
+// should find a proper endpoint for this
+// can be found by requesting a quote
+https://iexcloud.io/docs/api/#quote
+
+- Show today’s market trading volume
+
+can be found here
+https://iexcloud.io/docs/api/#market-volume-u-s
+
+- Show a list of favorited stocks (the current price and % changed today)
+https://iexcloud.io/docs/api/#quote
+GET /stock/{symbol}/quote/{field}
+latestPrice: number
+changePercent: number
+
+- Look up a stock by symbol and show the following information for each stock
+(implement as a separate page which you can navigate by changing url):
+
+---- Historical pricing chart (timespans of 1D, 1W, 1M, 3M, 1Y, 5Y)
+https://iexcloud.io/docs/api/#time-series
+
+---- Company information
+https://iexcloud.io/docs/api/#company
+
+---- sector/industry information
+https://iexcloud.io/docs/api/#collections
+
+- Allow adding the stock to favorites list
+
+maybe local cache/storage? no db, thx
