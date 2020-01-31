@@ -14,4 +14,8 @@ export class IexService {
   getTodaysMarketTradingVolume() {
     return this.http.get(`${this.baseUrl}/stock/market/volume?${this.tokenParam}`);
   }
+
+  getBatchStocks(stocks: string [], types: string []) {
+    return this.http.get(`${this.baseUrl}/stock/market/batch?types=${types}&symbols=${stocks.join(',')}&${this.tokenParam}`);
+  }
 }
