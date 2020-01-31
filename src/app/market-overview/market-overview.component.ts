@@ -7,11 +7,13 @@ import { IexService } from '../iex.service';
   styleUrls: ['./market-overview.component.scss']
 })
 export class MarketOverviewComponent implements OnInit {
+  marketTradingVolume: [];
 
   constructor(private iexService: IexService) { }
 
   ngOnInit() {
-    this.iexService.getTodaysMarketTradingVolume().subscribe(res => console.log(res));
+    this.iexService.getTodaysMarketTradingVolume()
+      .subscribe((res: []) => this.marketTradingVolume = res);
   }
 
 }
