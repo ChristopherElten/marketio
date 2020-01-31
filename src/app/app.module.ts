@@ -7,6 +7,7 @@ import { MarketOverviewComponent } from './market-overview/market-overview.compo
 import { HttpClientModule } from '@angular/common/http';
 import { StockComponent } from './stock/stock.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AgGridModule } from 'ag-grid-angular';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

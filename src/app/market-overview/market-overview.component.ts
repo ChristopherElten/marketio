@@ -15,18 +15,19 @@ export class MarketOverviewComponent implements OnInit {
     'SNAP'
   ];
 
+  // todo - create constructors for columns
   marketVolumeColumnDefs = [
-    {headerName: 'Venue Name', field: 'venueName' },
-    {headerName: 'Volume', field: 'volume' },
-    {headerName: 'Market Percent', field: 'marketPercent'}
+    {headerName: 'Venue Name', field: 'venueName', sortable: true, filter: true},
+    {headerName: 'Volume', field: 'volume', sortable: true, filter: true},
+    {headerName: 'Market Percent', field: 'marketPercent', sortable: true, filter: true}
   ];
 
   marketVolumeRowData: [];
 
   favoriteStocksColumnDefs = [
-    {headerName: 'Symbol', field: 'symbol' },
-    {headerName: 'Price', field: 'latestPrice' },
-    {headerName: 'Change Percent', field: 'changePercent'}
+    {headerName: 'Symbol', field: 'symbol', sortable: true, filter: true},
+    {headerName: 'Price', field: 'latestPrice', sortable: true, filter: true},
+    {headerName: 'Change Percent', field: 'changePercent', sortable: true, filter: true}
   ];
 
   favoriteStocksRowData: [];
