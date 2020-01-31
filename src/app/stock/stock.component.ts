@@ -20,9 +20,7 @@ export class StockComponent implements OnInit {
 
   ngOnInit() {
     this.stockData = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-          console.log(params);
-          return this.service.getStock(params.get('symbol'));
-        })).subscribe(res => console.log(res));
+      switchMap((params: ParamMap) => this.service.getStock(params.get('symbol'))))
+      .subscribe(res => this.stockData = res);
   }
 }
