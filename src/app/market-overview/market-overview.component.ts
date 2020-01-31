@@ -8,10 +8,11 @@ import { IexService } from '../iex.service';
 })
 export class MarketOverviewComponent implements OnInit {
   isMarketOpen: boolean;
-  favoriteStocksListData: {};
+
   favoriteStocks = [
     'GOOG',
-    'AAPL'
+    'AAPL',
+    'SNAP'
   ];
 
   marketVolumeColumnDefs = [
@@ -22,6 +23,14 @@ export class MarketOverviewComponent implements OnInit {
 
   marketVolumeRowData: [];
 
+  favoriteStocksColumnDefs = [
+    {headerName: 'Symbol', field: 'symbol' },
+    {headerName: 'Price', field: 'latestPrice' },
+    {headerName: 'Change Percent', field: 'changePercent'}
+  ];
+
+  favoriteStocksRowData: [];
+
   constructor(private iexService: IexService) { }
 
   ngOnInit() {
@@ -31,12 +40,18 @@ export class MarketOverviewComponent implements OnInit {
       // todo - make quote an enum with other type options
     this.iexService.getBatchStocks(this.favoriteStocks, ['quote'])
       .subscribe((res) => {
-        this.favoriteStocksListData = res;
+        this.favoriteStocksRowData = this.getRowDataFromBatchStocks(res);
         this.isMarketOpen = Object.values(res)[0].quote.isUSMarketOpen;
       });
   }
 
   private getRowDataFromMarketTradingData(data) {
-    return data.map(el => Object.assign({ venueName: el.venueName, volume: el.volume, marketPercent: el.marketPercent*100}));
+    return data.map(el => Object.assign({ venueName: el.venueName, volume: el.volume, marketPercent: el.marketPercent * 100}));
+  }
+
+  private getRowDataFromBatchStocks(data) {
+    return Object.values(data).map((el: { quote: {[_: string]: {}} }) => Object.assign(
+        { symbol: el.quote.symbol, latestPrice: el.quote.latestPrice, changePercent: (el.quote.changePercent as number) * 100
+      }));
   }
 }
