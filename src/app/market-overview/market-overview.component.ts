@@ -7,7 +7,6 @@ import { IexService } from '../iex.service';
   styleUrls: ['./market-overview.component.scss']
 })
 export class MarketOverviewComponent implements OnInit {
-  marketTradingVolume: [];
   isMarketOpen: boolean;
   favoriteStocksListData: {};
   favoriteStocks = [
@@ -15,23 +14,19 @@ export class MarketOverviewComponent implements OnInit {
     'AAPL'
   ];
 
-  columnDefs = [
-    {headerName: 'Make', field: 'make' },
-    {headerName: 'Model', field: 'model' },
-    {headerName: 'Price', field: 'price'}
+  marketVolumeColumnDefs = [
+    {headerName: 'Venue Name', field: 'venueName' },
+    {headerName: 'Volume', field: 'volume' },
+    {headerName: 'Market Percent', field: 'marketPercent'}
   ];
 
-  rowData = [
-      { make: 'Toyota', model: 'Celica', price: 35000 },
-      { make: 'Ford', model: 'Mondeo', price: 32000 },
-      { make: 'Porsche', model: 'Boxter', price: 72000 }
-  ];
+  marketVolumeRowData: [];
 
   constructor(private iexService: IexService) { }
 
   ngOnInit() {
     this.iexService.getTodaysMarketTradingVolume()
-      .subscribe((res: []) => this.marketTradingVolume = res);
+      .subscribe((res: []) => this.marketVolumeRowData = this.getRowDataFromMarketTradingData(res));
 
       // todo - make quote an enum with other type options
     this.iexService.getBatchStocks(this.favoriteStocks, ['quote'])
@@ -41,4 +36,7 @@ export class MarketOverviewComponent implements OnInit {
       });
   }
 
+  private getRowDataFromMarketTradingData(data) {
+    return data.map(el => Object.assign({ venueName: el.venueName, volume: el.volume, marketPercent: el.marketPercent*100}));
+  }
 }
