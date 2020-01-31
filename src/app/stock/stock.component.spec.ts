@@ -33,4 +33,33 @@ describe('StockComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get chart options and set title', () => {
+    expect(component.getChartOptions('title', [], [])).toEqual(getChartMock());
+  });
+
+  it('should get chart options and set series', () => {
+    const chartMock = getChartMock();
+    chartMock.series.push({data: [1, 2, 3]});
+    expect(component.getChartOptions('title', [{data: [1, 2, 3]}], [])).toEqual(chartMock);
+  });
+
+  it('should get chart options and categories', () => {
+    const chartMock = getChartMock();
+    chartMock.xAxis.categories.push({data: [1, 2, 3]});
+    expect(component.getChartOptions('title', [], [{data: [1, 2, 3]}])).toEqual(chartMock);
+  });
+
+  function getChartMock() {
+    return {
+      title: 'title',
+      yAxis: {
+        title: {
+            text: 'Price'
+        }
+      },
+      series: [],
+      xAxis: { categories: [] }
+    };
+  }
 });
