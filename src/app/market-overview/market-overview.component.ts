@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IexService } from '../iex.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-market-overview',

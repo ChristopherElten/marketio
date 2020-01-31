@@ -18,4 +18,8 @@ export class IexService {
   getBatchStocks(stocks: string [], types: string []) {
     return this.http.get(`${this.baseUrl}/stock/market/batch?types=${types}&symbols=${stocks.join(',')}&${this.tokenParam}`);
   }
+
+  getStock(stock: string, range = '') {
+    return this.http.get(`${this.baseUrl}/stock/${stock}/chart/${range}?${this.tokenParam}`);
+  }
 }
