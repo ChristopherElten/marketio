@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockComponent } from './stock.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('StockComponent', () => {
   let component: StockComponent;
@@ -8,7 +13,13 @@ describe('StockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StockComponent ]
+      declarations: [ StockComponent ],
+      imports: [
+        HighchartsChartModule,
+        RouterTestingModule,
+        AgGridModule.withComponents([]),
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));
