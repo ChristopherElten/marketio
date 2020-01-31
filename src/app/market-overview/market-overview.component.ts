@@ -30,7 +30,7 @@ export class MarketOverviewComponent implements OnInit {
     {headerName: 'Change Percent', field: 'changePercent', sortable: true, filter: true}
   ];
 
-  favoriteStocksRowData: [];
+  favoriteStocksRowData;
 
   constructor(private iexService: IexService) { }
 

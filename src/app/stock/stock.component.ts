@@ -31,7 +31,7 @@ export class StockComponent implements OnInit {
       switchMap((params: ParamMap) => {
         const sym = params.get('symbol');
         this.stockSym = sym;
-        this.service.getStock(sym).subscribe((res: []) => {
+        this.service.getStock(sym).subscribe((res: {[_: string]: {}}[]) => {
           this.stockData = res;
           const series = [];
           series.push({ name: 'High', type: 'line', data: res.map(el => el.high)} );
