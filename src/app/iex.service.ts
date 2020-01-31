@@ -22,4 +22,8 @@ export class IexService {
   getStock(stock: string, range = '') {
     return this.http.get(`${this.baseUrl}/stock/${stock}/chart/${range}?${this.tokenParam}`);
   }
+
+  getCompany(stock: string) {
+    return this.http.get(`${this.baseUrl}/stock/${stock}/company?${this.tokenParam}`);
+  }
 }
