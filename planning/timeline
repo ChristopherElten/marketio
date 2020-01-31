@@ -1,0 +1,26 @@
+Things to note:
+-------
+
+0. Read problem and send Qs
+6:10 - 6:35
+
+1. Selected most appropriate API first
+6:35 - 6:55
+
+2. Planned ui by looking at competition
+6:55 - 7:15
+
+Only selected libraries after mocks were created
+- don't introduce dependencies unless necessary, e.g. Angular Material components
+
+3. Setup core pieces
+
+Demo API**
+- The most critical component
+
+4. Place data in all the right places
+
+- Route to stock page with request
+- route to main page and populate with real data (ugly ui)
+
+5. cleanup with proper ui
