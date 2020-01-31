@@ -6,9 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class IexService {
 
+  // todo - move these to json/configs
+  baseUrl = 'https://sandbox.iexapis.com/stable';
+  tokenParam = 'token=Tpk_896327e3ef09470f9c5938b42620fd5f';
   constructor(private http: HttpClient) { }
 
   getTodaysMarketTradingVolume() {
-    return this.http.get('https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_896327e3ef09470f9c5938b42620fd5f');
+    return this.http.get(`${this.baseUrl}/stock/market/volume?${this.tokenParam}`);
   }
 }
