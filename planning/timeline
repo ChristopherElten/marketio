@@ -14,13 +14,15 @@ Only selected libraries after mocks were created
 - don't introduce dependencies unless necessary, e.g. Angular Material components
 
 3. Setup core pieces
-
+7:15 - 8:45
 Demo API**
 - The most critical component
 
 4. Place data in all the right places
+7:15 - 8:45
 
 - Route to stock page with request
 - route to main page and populate with real data (ugly ui)
 
 5. cleanup with proper ui
+8:45 - 

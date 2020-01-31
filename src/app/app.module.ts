@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MarketOverviewComponent } from './market-overview/market-overview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StockComponent } from './stock/stock.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StockComponent } from './stock/stock.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

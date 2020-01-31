@@ -1,5 +1,21 @@
 <h1>Is Market open: {{ isMarketOpen }}</h1>
 
+<h3>Market Trading Volume</h3>
+<ag-grid-angular
+    style="width: 500px; height: 200px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
+
+<h3>Favorite Stocks</h3>
+<ag-grid-angular
+    style="width: 500px; height: 200px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
+
 <hr>
 
 <pre>{{ marketTradingVolume | json }}</pre>
